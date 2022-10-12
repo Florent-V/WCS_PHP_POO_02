@@ -29,7 +29,18 @@ class Truck extends Car
      */ 
     public function setLoading($loading) : self
     {
-        $this->loading = $loading<0 ? 0 : $loading;
+        switch (true) {
+            case $loading < 0:
+                $this->loading = 0;
+                break;
+            case $loading > $this->capacity:
+                $this->loading = $this->capacity;
+                echo 'Warning Truck is overloaded !';
+                break;
+            default:
+                $this->loading = $loading;
+                echo 'Truck is Loaded';
+        }
         return $this;
     }
 
