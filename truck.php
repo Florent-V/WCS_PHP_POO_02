@@ -21,6 +21,11 @@ class Truck extends Car
     {
         return $this->loading;
     }
+    
+    public function isLoaded()
+    {
+        return ($this->loading < $this->capacity) ? 'in filling' : 'full';
+    }
 
     /**
      * Set the value of loading
